@@ -1,0 +1,98 @@
+<div class='w-10/12 m-auto my-10'>
+  <div class="mb-6">
+    <h1 class="block text-black-500 text-3xl font-bold text-center tracking-widest">編輯課程</h1>
+  </div>
+
+    <div class="md:grid md:gap-6 ">
+      <div class="mt-5 md:mt-0 ">
+        <%= form_with model: [:admin, @course] do |form| %>
+          <div class="shadow sm:rounded-md sm:overflow-hidden">
+            <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+              <div class="grid w-full">
+                <div class="col-span-3 w-full">
+                  <%= form.label :title, '課程名稱', class:"block text-sm font-medium text-gray-700"%>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <%= form.text_field :title, class:"focus:ring-blue-500 focus:bg-blue-50 block w-full h-10 rounded-md text-md border border-gray-300"%>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid">
+                <div class="col-span-3">
+                  <%= form.label :category, '課程種類', class:"block text-sm font-medium text-gray-700"%>
+                    <%= form.select :category, options_for_select(Course.categories.map {|key, value| [key, Course.categories.key(value)]}, @course.category), class:"focus:ring-blue-500 focus:bg-blue-50 block w-full h-10 rounded-md text-md border border-gray-300"%>
+                </div>
+              </div>
+
+              <div class="grid">
+                <div class="col-span-3 w-full">
+                  <%= form.label :price, '課程價格', class:"block text-sm font-medium text-gray-700"%>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <%= form.number_field :price, class:"focus:ring-blue-500 focus:bg-blue-50 block w-full h-10 rounded-md text-md border border-gray-300" %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid">
+                <div class="col-span-3">
+                  <%= form.label :currency, '幣別', class:"block text-sm font-medium text-gray-700"%>
+                    <%= form.select :currency, options_for_select(Course.currencies.map {|key, value| [key, Course.currencies.key(value)]}, @course.currency), class:"focus:ring-blue-500 focus:bg-blue-50 block w-full h-10 rounded-md text-md border border-gray-300"%>
+                </div>
+              </div>
+
+              <div class="grid">
+                <div class="col-span-3">
+                  <%= form.label :available, '開放狀態', class:"block text-sm font-medium text-gray-700"%>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <%= form.select(:available, [['未開放', false], ['開放中', true]], {},  { class:'focus:ring-blue-500 focus:bg-blue-50 block w-full h-10 rounded-md text-md border border-gray-300'})  %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid">
+                <div class="col-span-3 w-full">
+                  <%= form.label :duration, '課程有效時間', class:"block text-sm font-medium text-gray-700"%>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <%= form.number_field :duration, class:"focus:ring-blue-500 focus:bg-blue-50 block w-full h-10 rounded-md text-md border border-gray-300"%>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid w-full">
+                <div class="col-span-3 w-full">
+                  <%= form.label :friendly_id, '課程URL', class:"block text-sm font-medium text-gray-700"%>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <%= form.text_field :friendly_id, class:"focus:ring-blue-500 focus:bg-blue-50 block w-full h-10 rounded-md text-md border border-gray-300"%>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid w-full">
+                <div class="col-span-3 w-full">
+                  <%= form.label :video, '課程連結', class:"block text-sm font-medium text-gray-700"%>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <%= form.text_field :video, class:"focus:ring-blue-500 focus:bg-blue-50 block w-full h-10 rounded-md text-md border border-gray-300"%>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid w-full">
+                <div class="col-span-3 w-full">
+                  <%= form.label :intro, '課程簡介', class:"block text-sm font-medium text-gray-700"%>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <%= form.text_field :intro, class:"focus:ring-blue-500 focus:bg-blue-50 block w-full h-10 rounded-md text-md border border-gray-300"%>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="px-6 py-6 bg-gray-50 text-right">
+              <%= form.submit value="送出", class:"inline-flex justify-center py-4 px-6 border border-transparent shadow-sm text-md font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" %>
+
+              <%= link_to "取消", admin_courses_path, class:"inline-flex justify-center py-4 px-6 border border-transparent shadow-sm text-md font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ml-5" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+</div>
