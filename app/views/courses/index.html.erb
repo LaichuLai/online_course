@@ -9,38 +9,55 @@
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">課程種類</th>
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">課程連結</th>
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">課程簡介</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">購買日期</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">課程到期日期</th>
             </tr>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
-          <%  @courses.reverse.each do |course|  %>
-            <tr>
-              <td class="px-6 py-4 whitespace-nowrap">
-                <div class="flex items-center">
-                  <div class="ml-4">
-                    <div class="text-sm font-medium text-gray-900">
-                      <%= course.title%>
+            <% @orders.reverse.each do |order|%>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="ml-4">
+                      <div class="text-sm font-medium text-gray-900">
+                        <%= order.course.title%>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap">
-                <div class="text-sm text-gray-900">
-                  <%= course.category%>
-                </div>
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap">
-                <div class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                  <a href="<%= course.video%>">點選上課</a>
-                </div>
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap">
-                <div class="text-sm text-gray-900">
-                  <%= truncate(course.intro, :length => 20) %>
-                </div>
-              </td> 
-            </tr>
-
-          <%end %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-900">
+                    <%= order.course.category%>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">                  
+                    <% if order.created_at.localtime + order.course.duration.day >= Time.now%>
+                      <div class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                        <a href="<%= order.course.video%>">點選上課</a>
+                      </div>
+                    <% else %>
+                      <div class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                        <p>課程已到期</p>
+                      </div>
+                    <% end %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-900">
+                    <%= truncate(order.course.intro, :length => 20) %>
+                  </div>
+                </td> 
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-900">
+                    <%= order.created_at.localtime.strftime("%Y/%m/%d")%>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-900">
+                    <%= (order.created_at.localtime + order.course.duration.day).strftime("%Y/%m/%d") %>
+                  </div>
+                </td>
+              </tr>
+            <% end%>
           </tbody>
         </table>
       </div>
