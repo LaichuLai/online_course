@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  category: 1
+  price: 9.99
+  currency: 1
+  available: false
+  duration: 1
+  friendly_id: MyString
+
+two:
+  title: MyString
+  category: 1
+  price: 9.99
+  currency: 1
+  available: false
+  duration: 1
+  friendly_id: MyString

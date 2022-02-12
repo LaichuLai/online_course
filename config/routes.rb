@@ -1,3 +1,17 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :admins, controllers: { sessions: "admins/sessions", registrations: "admins/registrations" }
+  devise_for :users
+  root 'welcome#index'
+
+  mount ApiRoot => ApiRoot::PREFIX
+
+  resources :courses, only: [:index, :show] do
+    member do
+        post "buy" => "courses#buy"
+    end
+  end
+
+  namespace :admin do 
+    resources :courses
+  end
 end

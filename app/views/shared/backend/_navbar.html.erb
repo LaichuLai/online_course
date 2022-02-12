@@ -1,0 +1,48 @@
+<div class="relative bg-blue-300 h-20 ">
+  <div class=" h-20 mx-auto px-2 sm:px-6">
+    <div class="max-w-full bg-blue-300 h-20 navbar">
+      <div class="mx-2 px-2 h-20">
+        <div class="flex border-gray-100 h-full">
+          <div class="self-center w-3/12">
+            <div class="w-1/10">
+              <% if current_admin.present? %>
+                <%= link_to "課程後台管理系統", admin_courses_path, class:"text-white text-2xl subpixel-antialiased " %>
+              <% else %>
+                <%= link_to "課程後台管理系統", new_admin_registration_path, class:"text-white text-2xl subpixel-antialiased " %>
+              <% end %>
+            </div>
+          </div>
+
+             <div class="flex" style="width: 70%" >
+              <div class="w-36 hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+                <% if signed_in? && current_admin %>
+                  <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md">
+                    <%= link_to "變更#{current_admin.email }資料", edit_admin_registration_path(current_admin) %>
+                  </div>
+                <% end %>
+
+                  <div class=" text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md">
+                    <%= link_to "回前台首頁", root_path %>
+                  </div>
+
+
+                  <% if signed_in? %>
+                    <div class=" text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md">
+                      <%= link_to "登出", destroy_admin_session_path, method: 'delete', class:"" %>
+                    </div>
+                    <% else %>
+                    <div>
+                    <%= link_to "登入", admin_session_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md" %>
+                    </div>
+                    <div>
+                    <%= link_to "註冊", new_admin_registration_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md" %>
+                    </div>
+                  <% end %>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

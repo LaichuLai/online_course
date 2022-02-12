@@ -3,6 +3,16 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
 
+# Use devise as membership manage system
+gem 'devise', '~> 4.8', '>= 4.8.1'
+
+# Use grape to manage API
+gem 'grape', '~> 1.6', '>= 1.6.2'
+gem 'grape-entity', '~> 0.10.1'
+
+# Ue friendly-id to customize course URL
+gem 'friendly_id', '~> 5.4', '>= 5.4.2'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.4'
 # Use postgresql as the database for Active Record
@@ -31,6 +41,12 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  # Install rubocop to check coding-style
+  gem 'rubocop', '~> 1.25', '>= 1.25.1'
+
+  # Install foreman
+  gem 'foreman', '~> 0.87.2'
 end
 
 group :development do

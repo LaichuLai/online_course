@@ -8,9 +8,19 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <%= flash[:alert] %>
+    <% end %>
+    <%= render 'shared/frontend/navbar' %>
     <%= yield %>
+    <%= render 'shared/frontend/footer' %>
   </body>
 </html>
