@@ -44,6 +44,9 @@ group :development, :test do
 
   # Install rubocop to check coding-style
   gem 'rubocop', '~> 1.25', '>= 1.25.1'
+
+  # Install foreman
+  gem 'foreman', '~> 0.87.2'
 end
 
 group :development do

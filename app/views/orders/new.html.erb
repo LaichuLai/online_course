@@ -1,0 +1,6 @@
+<%= form_with model: [@order] do |form| %>
+  <%= form.label :email, '電子郵件'%>
+  <%= form.text_field :email%>
+
+  <%= form.submit value="購買課程" %>
+<% end%>>
