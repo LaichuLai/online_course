@@ -4,7 +4,9 @@
     <span class="ml-5 mb-5 px-3 py-1 bg-red-200 rounded-full inline-block"><%= @course.category %></span>
     <p class="text-l pl-5 text-black tracking-widest pt-2 pb-8">
     <%= @course.intro%></p>
-    <%= link_to "購買課程", buy_course_path(@course),class:"ml-5 mb-5 px-3 py-1 bg-blue-200 rounded-full inline-bloc", method: :post%>
+    <div class="pb-3">
+      <%= link_to "購買課程", buy_course_path(@course),class:"ml-5 mb-5 px-3 py-1 bg-blue-200 rounded-full inline-bloc", method: :post%>
+    </div>
   </section>
   <section class="bg-gray-200 md:w-1/3 md:ml-6 drop-shadow-lg rounded-lg z-20 md:-mt-6 sm:mt-6">
     <div class="sticky top-1">
