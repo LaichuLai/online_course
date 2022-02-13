@@ -4,5 +4,6 @@ module ApiV0
     version 'v0', using: :path
     
     mount Courses
+    mount Orders
   end
 end

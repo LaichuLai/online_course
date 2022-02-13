@@ -1,4 +1,4 @@
-class ApiAccessToken < ApplicationRecord
+class ApiAccessUserToken < ApplicationRecord
   belongs_to :user
 
   before_create :generate_keys
