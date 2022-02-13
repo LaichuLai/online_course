@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :courses, only: [:index, :show] do
     member do
-        post "buy" => "courses#buy"
+        post :buy
     end
   end
 
