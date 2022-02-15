@@ -19,3 +19,6 @@
 ### 4. 新增課程功能：
 按下新增課程按鈕後，可填寫相關內容，並且可以自訂課程URL。
 <img width="1437" alt="截圖 2022-02-13 下午11 43 49" src="https://user-images.githubusercontent.com/76055783/154010662-1fc84aea-1371-46f9-ba12-ea62edb1dbd7.png">
+
+### 5. 使用API查詢課程列表：
+https://radiant-bastion-62377.herokuapp.com/api/v0/courses
