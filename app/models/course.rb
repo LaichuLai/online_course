@@ -1,6 +1,6 @@
 class Course < ApplicationRecord
   has_many :orders
-  belongs_to :users
+  belongs_to :users, optional: true
 
   enum category: [:國文, :英文, :數學, :歷史, :地理, :公民, :物理, :化學, :其它]
   enum currency: [:TWD, :USD, :JPY, :EURO, :others]
