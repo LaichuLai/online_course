@@ -13,8 +13,7 @@
 
 ### 3. 後台功能：
 在前台的footer有後台連結，在使用後台前需要註冊admin帳號，註冊完後可新增課程。
-<img width="1437" alt="截圖 2022-02-13 下午11 43 49" src="https://user-images.githubusercontent.com/76055783/154010544-0df39105-2730-4101-a087-fab9ad1d67d1.png">
-
+<img width="820" alt="截圖 2022-02-15 下午6 46 24" src="https://user-images.githubusercontent.com/76055783/154046516-b113f001-3b00-482b-bea6-f3e4fbe00841.png">
 
 ### 4. 新增課程功能：
 按下新增課程按鈕後，可填寫相關內容，並且可以自訂課程URL。
@@ -22,3 +21,4 @@
 
 ### 5. 使用API查詢課程列表：
 https://radiant-bastion-62377.herokuapp.com/api/v0/courses
+
